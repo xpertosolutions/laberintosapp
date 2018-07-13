@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+
+
+    <!-- meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com http://www.laberintos.com.ec 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src * http://www.laberintos.com.ec" -->
+	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://www.laberintos.com.ec https://www.laberintos.com.ec 'unsafe-eval' 'unsafe-inline'; script-src * http://www.laberintos.com.ec https://www.laberintos.com.ec 'unsafe-eval' 'unsafe-inline'; media-src *; img-src 'self' data: *" >
+	<!-- meta http-equiv="Content-Security-Policy" content="default-src * 'self' data: gap: http://www.laberintos.com.ec; style-src 'self' 'unsafe-inline' http://www.laberintos.com.ec; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com http://www.laberintos.com.ec; img-src 'self' * http://www.laberintos.com.ec" >
+
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- meta name="apple-mobile-web-app-status-bar-style" content="black" -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="theme-color" content="#95CA17">
+
+    <!-- Your app title -->
+    <title>laberintos.com.ec App</title>
+    <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
+        http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
+     -->
+    <link rel="stylesheet" href="css/reset.css" />
+	 <link rel="stylesheet" href="lib/framework7/css/xs_app.css" />
+ 	<link rel="stylesheet" href="lib/framework7/css/framework7.min.css">
+	<link rel="stylesheet" href="lib/framework7/css/framework7.md.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body class="color-theme-green">
+	<div id="app">
+    <!-- Status bar overlay for fullscreen mode-->
+    <!-- div class="statusbar"></div -->
+    <!-- Left panel with cover effect-->
+    <div class="panel panel-left panel-cover theme-dark">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="title">Menú Principal</div>
+            </div>
+          </div>
+          <div class="page-content">
+            <div class="block">
+				<div class="list links-list">
+	              <ul>
+                    <li><a href="#" class="panel-close" id="menulink-galerias">Plantas</a></li>
+                    <li><a href="#" class="panel-close" id="menulink-about">Acerca de</a></li>
+                    <li><a href="#" class="panel-close" id="menulink-contacto">Contacto</a></li>
+	              </ul>
+
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Views/Tabs container -->
+    <div class="views tabs ios-edges">
+      <!-- Tabbar for switching views-tabs -->
+      <div class="toolbar tabbar-labels toolbar-bottom-md">
+        <div class="toolbar-inner">
+          <a href="/" class="tab-link tab-link-active" id="tablink-home">
+            <i class="icon f7-icons ios-only">home</i>
+            <i class="icon f7-icons ios-only icon-ios-fill">home_fill</i>
+            <i class="icon material-icons md-only">home</i>
+            <span class="tabbar-label">Inicio</span>
+          </a>
+          <a href="/galerias/" class="tab-link" id="tablink-galerias">
+            <i class="icon f7-icons ios-only">list</i>
+            <i class="icon f7-icons ios-only icon-ios-fill">list_fill</i>
+            <i class="icon material-icons md-only">view_list</i>
+            <span class="tabbar-label">Plantas</span>
+          </a>
+          <a href="/about/" class="tab-link" id="tablink-about">
+            <i class="icon f7-icons ios-only">settings</i>
+            <i class="icon f7-icons ios-only icon-ios-fill">settings_fill</i>
+            <i class="icon material-icons md-only">settings</i>
+            <span class="tabbar-label">Acerca de</span>
+          </a>
+          <a href="/contacto/" class="tab-link" id="tablink-contacto">
+            <i class="icon f7-icons ios-only">email</i>
+            <i class="icon f7-icons ios-only icon-ios-fill">email_fill</i>
+            <i class="icon material-icons md-only">email</i>
+            <span class="tabbar-label">Contacto</span>
+          </a>
+        </div>
+      </div>
+      <!-- Your main view/tab, should have "view-main" class. It also has "tab-active" class -->
+      <div id="view-home" class="view view-main tab tab-active">
+        <!-- Page, data-name contains page name which can be used in page callbacks -->
+        <div class="page" data-name="home">
+          <!-- Top Navbar -->
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="left">
+                <a href="#" class="link icon-only panel-open" data-panel="left">
+                  <i class="icon f7-icons ios-only">menu</i>
+                  <i class="icon material-icons md-only">menu</i>
+                </a>
+              </div>
+              <div class="title sliding">laberintos.com.ec</div>
+            </div>
+          </div>
+
+          <!-- Scrollable page content-->
+          <div class="page-content">
+            <div class="block block-strong">
+                <img src="img/laberintos_green.png" alt="laberintos.com.ec"  />
+                <h2>Bienvenidos a la APP del Laberintos Vivero Jardín</h2>
+            </div>
+
+            <div class="block-title">Menú</div>
+            <div class="list">
+              <ul>
+                <li>
+                  <a href="/galerias/" class="item-content item-link">
+                    <div class="item-inner">
+                      <div class="item-title">Plantas</div>
+                    </div>
+                  </a>
+                </li>
+								<li>
+                  <a href="/about/" class="item-content item-link">
+                    <div class="item-inner">
+                      <div class="item-title">Acerca de</div>
+                    </div>
+                  </a>
+                </li>
+								<li>
+                  <a href="/contacto/" class="item-content item-link">
+                    <div class="item-inner">
+                      <div class="item-title">Contacto</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Catalog View -->
+      <div id="view-galerias" class="view tab">
+        <!-- Catalog page will be loaded here dynamically from /galerias/ route -->
+      </div>
+      <!-- Settings View -->
+      <div id="view-about" class="view tab">
+        <!-- Settings page will be loaded here dynamically from /about/ route -->
+      </div>
+			<!-- Settings View -->
+      <div id="view-contacto" class="view tab">
+        <!-- Settings page will be loaded here dynamically from /contacto/ route -->
+      </div>
+
+    </div>
+
+    <!-- Popup -->
+    <div class="popup" id="my-popup">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="title">Titulo Popup</div>
+              <div class="right">
+                <a href="#" class="link popup-close">Cerrar</a>
+              </div>
+            </div>
+          </div>
+          <div class="page-content">
+            <div class="block">
+              <p>Contenido Popup</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="popup popup-galeria-item">
+        <div class="view">
+            <div class="page">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="title">Galería de Plantas</div>
+                        <div class="right">
+                            <!-- Link to close popup -->
+                            <a class="link popup-close">Cerrar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-content">
+                    <div class="block">
+                        <a href="#" class="link popup-close">Cerrar</a>
+                        <div class="block-title"><h3 id="xs_galeria_item_titulo"></h3></div>
+                        <div id="xs_galeria_item_detalle" style="overflow: auto"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Screen -->
+    <!--
+    <div class="login-screen" id="my-login-screen">
+      <div class="view">
+        <div class="page">
+          <div class="page-content login-screen-content">
+            <div class="login-screen-title">Login</div>
+            <div class="list">
+              <ul>
+                <li class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Username</div>
+                    <div class="item-input-wrap">
+                      <input type="text" name="username" placeholder="Your username">
+                    </div>
+                  </div>
+                </li>
+                <li class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Password</div>
+                    <div class="item-input-wrap">
+                      <input type="password" name="password" placeholder="Your password">
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="list">
+              <ul>
+                <li>
+                  <a href="#" class="item-link list-button login-button">Sign In</a>
+                </li>
+              </ul>
+              <div class="block-footer">Some text about login information.<br>Click "Sign In" to close Login Screen</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    -->
+
+  </div>
+
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="js/xs_app.js?xs=123"></script>
+
+</body>
+
+</html>
